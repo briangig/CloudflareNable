@@ -15,6 +15,8 @@ For tweaks, improvements, and 2021.1+ support.
 
 Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous versions if specific noted steps are configured.
 
+This is using the free tier from Cloudflare - there is no cost to implement this.  There are benefits of going with a paid plan, including additional insite CNAME redirect, WAF, etc., but this guide will not touch on those features. 
+
 
 This guide will utilize a new domain (referred to as CF Domain here) that will become where you point agents and WebUI users.  It is possible to keep your existing domain/subdomain name and utilize Cloudflare, but that will not be covered here.
 
@@ -23,7 +25,7 @@ This guide will utilize a new domain (referred to as CF Domain here) that will b
 
 * See https://support.cloudflare.com/hc/en-us/articles/205195708-Changing-your-domain-nameservers-to-Cloudflare
 
-Once your name servers have been configured, log into your Cloudflare admin portal and go to the DNS tab.  Configure an A record to point to your Nable server IP.  If possible, use a different IP from your existing Nable hostname.
+Once your domain has been updated with Cloudflare's nameservers, log into your Cloudflare admin portal at https://dash.cloudflare.com/ and go to the DNS tab.  Configure an A record to point to your Nable server IP.  If possible, use a different IP from your existing Nable hostname.
 
 You should see something similar to this:
 
