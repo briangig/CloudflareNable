@@ -235,7 +235,7 @@ Another option would be to keep your client offices WAN IPs whitelisted on your 
 
 #### Monitoring for Issues
 
-Once you have some traffic flowing through Cloudflare, it is very important to check for any legitimate traffic getting blocked.  This guide has been created largly using trial an error, so it is possible additional changes need to be made.  If you find something needs to be added, please share!
+Once you have some traffic flowing through Cloudflare, it is very important to check for any legitimate WebUI or Agent traffic getting blocked.  This guide has been created largly using trial and error, so it is possible additional changes need to be made.  If you find something needs to be added, please share!
 
 #### Break Glass Scenario
 
