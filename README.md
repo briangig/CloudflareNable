@@ -46,10 +46,10 @@ In the Cloudflare admin portal, under SSL/TLS -> Overview, be sure encryption mo
 
 Under SSL/TLS -> Edge Certificate:
 
-* Enabled Always Use HTTPS
+* Enable Always Use HTTPS
 * Set Minimum TLS Version to 1.2
 * Enable TLS 1.3
-* Automatic HTTPS Rewrites
+* Enable Automatic HTTPS Rewrites
 
 ![image](https://user-images.githubusercontent.com/1140952/126250199-9a727f77-c1cf-49da-bf6f-7011167cba27.png)
 
