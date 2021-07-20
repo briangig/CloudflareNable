@@ -11,7 +11,7 @@ Also tweaks, improvements, and 2021.1+ support.
 * /u/likwid9
 * various members of the https://n-central-community.slack.com/ team
 
-Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous versions if versiopn specific  steps are configured.
+Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous builds if the version specific steps in this guide are configured correctly.
 
 This is using the free tier from Cloudflare - there is no cost to implement this.  There are benefits of going with a paid plan, including additional traffic insight, CNAME redirect, WAF, etc., but this guide will not touch on those features. 
 
@@ -21,6 +21,8 @@ This guide will utilize a new domain (hereinafter referred to as "CF Domain") th
 ## 1. Aquire a domain name, Cloudflare Account and configure Cloudflare's nameservers (NS)
 
 If you don't already have a Cloudflare account, go to https://dash.cloudflare.com/sign-up and sign up for a free account.  Be sure to configure MFA on the account.
+
+Update the nameservers for your domain to use the provided Cloudflare nameservers:
 
 * See https://support.cloudflare.com/hc/en-us/articles/205195708-Changing-your-domain-nameservers-to-Cloudflare
 
@@ -48,7 +50,6 @@ Under SSL/TLS -> Edge Certificate:
 * Set Minimum TLS Version to 1.2
 * Enable TLS 1.3
 * Automatic HTTPS Rewrites
-
 
 ![image](https://user-images.githubusercontent.com/1140952/126250199-9a727f77-c1cf-49da-bf6f-7011167cba27.png)
 
@@ -177,7 +178,6 @@ Nable 2021.1+ brought a new built-in Envoy proxy to the Nable server, which redi
    * ![image](https://user-images.githubusercontent.com/1140952/126255970-b1ec9bcd-0f7b-4575-a51b-4aff17ba147e.png)
 
 
-
 ## Testing
 
 At this point we are now ready to test.
@@ -198,11 +198,11 @@ Ensure your IdP authentication works correctly.  You should be brought directly 
 
 ### Agents
 
-To start testing agent connectivity, go to a test or demo Customer in your Nable:
+To start testing agent connectivity, go to or create a test or demo Customer in your Nable:
 
 * Go to Administration -> Defaults -> Agent and Probe Settings
 * Add your new CF Domain to the top of the Server Address fields, check the box to propagate
-* Ensure you port number is 443, check proagate if you change this
+* Ensure you port number is 443, check propagate if you change this
 * Change BOSH traffic to ```Only send BOSH traffic over port 443``` and check the box to propagate
 * Click Save
 
@@ -213,9 +213,9 @@ You should see traffic start to appear in your Cloudflare Firewall Rules:
 
 **Important**: It is possible for traffic to appear in the Firewall Rules while the agent is still actually communicating with the old Nable server address.  Even if you remove the old server address from the Agent and Probe Settings, the agents appear cache the old name if they have communication issues with the new server address.  A few options to confirm traffic is going completely through Cloudflare:
 
-* Block your old Nable hostname/IP at the agent end
-* Block the IP the client is connecting from at your server end
-* Check the file ```C:\Program Files (x86)\N-able Technologies\Windows Agent\config\ServerConfig.xml``` on an agent.  The ```<ServerIP>``` key should be your new server address.
+* Block traffic to your old Nable hostname/IP on the agent end
+* Block the IP the agent is connecting from at your server end
+* Check the file ```C:\Program Files (x86)\N-able Technologies\Windows Agent\config\ServerConfig.xml``` on an agent you updated.  The ```<ServerIP>``` key should be your new server address.
    * Here is a simple PS Script that can output with an AMP to monitor your agents:
 ````powershell
 [xml]$xmlInput= Get-Content -Path "C:\Program Files (x86)\N-able Technologies\Windows Agent\config\ServerConfig.xml"
@@ -231,7 +231,7 @@ Once you have confirmed your test agents are communicating with Nable via Cloudf
 
 One option to avoid this would be to add your new CF Domain as a backup server address NOW, once you have confirmed basic functionality and before you have committed to migrating every agent over to the CF Domain.  Then work with your clients to get any offline or spare machines checking ASAP.  As long as the CF Domain is somewhere in that Server Address list, it should be able to check in when it gets powered on again.
 
-Another option would be to keep your client offices WAN IPs whitelisted on your Nable IP for a few weeks/months, to allow on-site devices to always check in and pull down the new Agent Communication settings.
+Another option would be to keep your client offices WAN IPs whitelisted on your Nable IP NAT rules for a few weeks/months, to allow on-site devices to always check in and pull down the new Agent Communication settings.
 
 #### Monitoring for Issues
 
