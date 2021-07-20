@@ -126,7 +126,8 @@ For both versions, if you would like to allow specific external email addresses 
 
 This is an example Main Policy for a 2021.1 that is configured to allow both IdP users and an Access Group to access the Nable WebUI:
 
-![image](https://user-images.githubusercontent.com/1140952/126254879-853992f6-15f8-41d3-9dc6-2c3ae3644c91.png)
+![image](https://user-images.githubusercontent.com/1140952/126256976-a38f8eec-09d9-4fc3-87b8-9a01c9b443df.png)
+
 
 #### Access Policies - Bypass
 
