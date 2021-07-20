@@ -81,3 +81,101 @@ Go to Firewall -> Firewall Rules
    * When incoming requests match… "URI" does not contain "randomfailstring"
    * Then: Block
    * ![image](https://user-images.githubusercontent.com/1140952/126251775-d94ec32b-2253-46e8-bf54-00329fa482ed.png)
+
+
+## 5. Access
+
+#### Login Methods
+
+Navigate to the Access tab in the Cloudflare admin page.  By default you should have One-Time Pin as an option for Login Methods, but you should add an Identity provider like Azure AD or another SAML compatible IdP.  This will be using to allow your internal team to authenticate with Cloudflare and access your Nable server login page.  This guide will not go into depth on configuring one of these, pleae see https://developers.cloudflare.com/access/about/quick-start for additional information.
+
+If you require users outside your IdP be able to access Nable, you can configure a public IdP like Facebook, or create an Access Group and utilize the One-Time Pin function.  We will touch on this later.
+
+#### Access Policies
+
+First, create your access policies to let your users access the WebUI.
+
+##### Main Policy
+
+**For Nable 2020.1 and OLDER:**
+
+* Main Policy
+   * Leave the application domain subdomain and path values blank
+   * Click ‘Add New Policy’, name it ‘Technicians’ and set to Allow
+   * Include ‘Emails Ending in’ @ yourmsp.com (whatever your IdP email suffix is)
+   * Configure Session Duration to be 12 hours
+   * Save and close the Access Policy
+
+
+**For Nable 2021.1 and NEWER:**
+
+* Main Policy
+   * Leave the application domain subdomain blank, and enter ```login``` for the path
+   * Click ‘Add New Policy’, name it ‘Technicians’ and set to Allow
+   * Include ‘Emails Ending in’ @ yourmsp.com (whatever your IdP email suffix is)
+   * Configure Session Duration to be 12 hours
+   * Save and close the Access Policy
+
+
+For both versions, if you would like to allow specific external email addresses to be able to login sing One-Time PINs:
+
+* Create an Access Group called "Client Access - Nable" or similar
+* Include: Emails
+   * Enter the email addresses you would like to allow into the group
+* Go back to your Main Policy, and in addition to your existing "Technicians" policy, add a new policy called "Client Access - Nable" or similar.
+   * Set this Policy to Allow
+   * Include the Access Group you just created
+
+This is an example Main Policy for a 2021.1 that is configured to allow both IdP users and an Access Group to access the Nable WebUI:
+
+![image](https://user-images.githubusercontent.com/1140952/126254879-853992f6-15f8-41d3-9dc6-2c3ae3644c91.png)
+
+##### Access Policies - Bypass
+
+For both versions of Nable, create additional Accesss Policies for each of the following, entering each as the ```path``` of the policy.  The policy should be configured for ```Bypass``` for ```Everyone``` on each.
+
+* /dms/
+* /download/
+* /bosh/bosh/
+* /commandprompt/
+* /dms/services/ServerMMS/
+* /FileTransfer/
+* /LogRetreival/
+* /services/ServerMMS/
+* /dms2/services2/ServerMMS2/
+* /dms/services/ServerUI
+* /dms2/services2/ServerUI2
+* /dms2/services2/ServerII2/
+* /dms2/services2/ServerEI2/
+* /images
+* /indexIntegrationExternalPageAction.action
+* /fonts/
+* /images/agent/
+* /dms2/hello
+* /rest/device-active-incident/
+* /rest/dashboard
+* /rest/lan-devices
+* /tunnel/request.tunnel
+* /UIFileTransfer
+
+Here is an example of one of the above paths:
+
+![image](https://user-images.githubusercontent.com/1140952/126256389-66e76bbf-3f5b-4f05-82eb-f94e37c27fb6.png)
+
+
+
+**For Nable 2021.1 and NEWER Only:**
+
+This step is optional, but no loss of functionality has been discovered yet.
+
+Nable 2021.1+ brought a new built-in Envoy proxy to the Nable server, which redirects to /login automatically when accessing the site.  Unfortunately for our use, this also leaves our root CF Domain accessible to scraping, and able to be identified as an Nable server.  We can fix this by enabling a redirect on the page:
+
+* Create a bypass policy for the root of your Application Domain (subdomain and path both blank):
+   * ![image](https://user-images.githubusercontent.com/1140952/126255643-3fa1b874-5ba2-4a7e-8bab-8f73ac07f11e.png)
+* Navigate to Rules, and create a new Page Rule to redirect the root of your new CF Domain to /login:
+   * ![image](https://user-images.githubusercontent.com/1140952/126255970-b1ec9bcd-0f7b-4575-a51b-4aff17ba147e.png)
+
+
+
+
+
