@@ -182,7 +182,7 @@ Nable 2021.1+ brought a new built-in Envoy proxy to the Nable server, which redi
 
 At this point we are now ready to test.
 
-For Nable 2021.1 and NEWER, we need to disable a security setting that will cause issues (sessions resetting etc).
+For Nable 2021.1 and NEWER, we need to disable a security setting that will cause issues (sessions resetting, etc.).
 
 * In your Nable server, Navigate to the System Level (Red).
 * Go to Administration -> Mail and Network Settings -> Network Security
@@ -198,7 +198,7 @@ Ensure your IdP authentication works correctly.  You should be brought directly 
 
 ### Agents
 
-To start testing agent connectivity, go to or create a test or demo Customer in your Nable:
+To start testing agent connectivity, go to or create a test/demo Customer in your Nable:
 
 * Go to Administration -> Defaults -> Agent and Probe Settings
 * Add your new CF Domain to the top of the Server Address fields, check the box to propagate
