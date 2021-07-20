@@ -13,7 +13,7 @@ Also:
 
 Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous versions if versiopn specific  steps are configured.
 
-This is using the free tier from Cloudflare - there is no cost to implement this.  There are benefits of going with a paid plan, including additional insite CNAME redirect, WAF, etc., but this guide will not touch on those features. 
+This is using the free tier from Cloudflare - there is no cost to implement this.  There are benefits of going with a paid plan, including additional traffic insight, CNAME redirect, WAF, etc., but this guide will not touch on those features. 
 
 
 This guide will utilize a new domain (referred to as CF Domain here) that will become where you point agents and WebUI users.  It is possible to keep your existing domain/subdomain name and utilize Cloudflare, but that will not be covered here.
