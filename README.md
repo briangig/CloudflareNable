@@ -1,4 +1,4 @@
-# Configuring Cloudflare in front of your Nable instance
+# Configuring Cloudflare to secure your Nable instance
 
 Credit:
 
