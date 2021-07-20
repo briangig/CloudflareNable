@@ -4,12 +4,12 @@ Credit:
 
 All credit to get this working in the first place goes to the work done by /u/Hefty-Hovercraft: https://www.reddit.com/r/msp/comments/g3iwig/how_we_used_a_free_cloudflare_plan_to_hide_our/
 
-Also:
+Also tweaks, improvements, and 2021.1+ support.
 
 * /u/square-mulberry8261
 * /u/m9832
 * /u/likwid9
-* various members of the https://n-central-community.slack.com/ team for tweaks, improvements, and 2021.1+ support.
+* various members of the https://n-central-community.slack.com/ team
 
 Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous versions if versiopn specific  steps are configured.
 
