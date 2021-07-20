@@ -4,7 +4,7 @@ Credit:
 
 All credit to get this working in the first place goes to the work done by /u/Hefty-Hovercraft: https://www.reddit.com/r/msp/comments/g3iwig/how_we_used_a_free_cloudflare_plan_to_hide_our/
 
-Also tweaks, improvements, and 2021.1+ support.
+Also tweaks, improvements, and 2021.1+ support credit goes to:
 
 * /u/square-mulberry8261
 * /u/m9832
