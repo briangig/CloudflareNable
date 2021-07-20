@@ -15,11 +15,12 @@ Note: This is confirmed working on self-hosted instances only at this time.  Thi
 
 This is using the free tier from Cloudflare - there is no cost to implement this.  There are benefits of going with a paid plan, including additional traffic insight, CNAME redirect, WAF, etc., but this guide will not touch on those features. 
 
+This guide will utilize a new domain (hereinafter referred to as "CF Domain") that will be where you point agents and WebUI users.  It is possible to keep your existing domain/subdomain name and utilize Cloudflare with a CNAME redirect, but that specific setup will not be covered here.
 
-This guide will utilize a new domain (referred to as CF Domain here) that will become where you point agents and WebUI users.  It is possible to keep your existing domain/subdomain name and utilize Cloudflare, but that will not be covered here.
 
+## 1. Aquire a domain name, Cloudflare Account and configure Cloudflare's nameservers (NS)
 
-## 1. Aquire a domain name and configure Cloudflare's nameservers (NS)
+If you don't already have a Cloudflare account, go to https://dash.cloudflare.com/sign-up and sign up for a free account.  Be sure to configure MFA on the account.
 
 * See https://support.cloudflare.com/hc/en-us/articles/205195708-Changing-your-domain-nameservers-to-Cloudflare
 
