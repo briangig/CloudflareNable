@@ -11,7 +11,7 @@ Also:
 * /u/likwid9
 * various members of the https://n-central-community.slack.com/ team for tweaks, improvements, and 2021.1+ support.
 
-Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous versions if specific noted steps are configured.
+Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous versions if versiopn specific  steps are configured.
 
 This is using the free tier from Cloudflare - there is no cost to implement this.  There are benefits of going with a paid plan, including additional insite CNAME redirect, WAF, etc., but this guide will not touch on those features. 
 
