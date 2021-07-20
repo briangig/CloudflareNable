@@ -25,7 +25,7 @@ This guide will utilize a new domain (referred to as CF Domain here) that will b
 
 * See https://support.cloudflare.com/hc/en-us/articles/205195708-Changing-your-domain-nameservers-to-Cloudflare
 
-Once your domain has been updated with Cloudflare's nameservers, log into your Cloudflare admin portal at https://dash.cloudflare.com/ and go to the DNS tab.  Configure an A record to point to your Nable server IP.  If possible, use a different IP from your existing Nable hostname.
+Once your domain has been updated with Cloudflare's nameservers, log into your Cloudflare admin portal at https://dash.cloudflare.com/ and go to the DNS tab.  Configure an A record to point to your Nable server IP.  If possible, use a different IP that your existing Nable hostname resolves to.
 
 You should see something similar to this:
 
