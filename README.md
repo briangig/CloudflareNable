@@ -11,7 +11,7 @@ Also:
 * /u/likwid9
 * various members of the https://n-central-community.slack.com/ team
 
-For tweaks, improvements, and 2021+ support.
+For tweaks, improvements, and 2021.1+ support.
 
 Note: This is confirmed working on self-hosted instances only at this time.  This guide will focus on 2021.1 HF5, but should work on previous versions if specific noted steps are configured.
 
