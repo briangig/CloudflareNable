@@ -225,11 +225,17 @@ $BackupServerIP = $xmlInput.ServerConfig.BackupServerIP
 
 ### Finalizing and Potential Issues
 
+#### Agents
+
 Once you have confirmed your test agents are communicating with Nable via Cloudflare successfully, you can start rolling out the new Agent/Probe Communication settings to additional Customers.  Keep in mind you will eventually need to lock down/disable your old Nable server IP (if you are using a new IP) or lock down your existing IP to only Cloudflare IPs (if your CF Domain and your old Nable server address share the same IP).  Once you do this, any offline device that has not pulled down the new config will be dead in the water so to speak.
 
 One option to avoid this would be to add your new CF Domain as a backup server address NOW, once you have confirmed basic functionality and before you have committed to migrating every agent over to the CF Domain.  Then work with your clients to get any offline or spare machines checking ASAP.  As long as the CF Domain is somewhere in that Server Address list, it should be able to check in when it gets powered on again.
 
 Another option would be to keep your client offices WAN IPs whitelisted on your Nable IP for a few weeks/months, to allow on-site devices to always check in and pull down the new Agent Communication settings.
+
+#### Monitoring for Issues
+
+Once you have some traffic flowing through Cloudflare, it is very important to check for any legitimate traffic getting blocked.  This guide has been created largly using trial an error, so it is possible additional changes need to be made.  If you find something needs to be added, please share!
 
 #### Break Glass Scenario
 
