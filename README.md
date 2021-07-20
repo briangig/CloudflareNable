@@ -83,21 +83,21 @@ Go to Firewall -> Firewall Rules
 
 ## 5. Access
 
-#### Login Methods
+### Login Methods
 
 Navigate to the Access tab in the Cloudflare admin page.  By default you should have One-Time Pin as an option for Login Methods, but you should add an Identity provider like Azure AD or another SAML compatible IdP.  This will be used to allow your internal team/techs to authenticate with Cloudflare and access your Nable server login page.  This guide will not go into depth on configuring a IdP, pleae see https://developers.cloudflare.com/access/about/quick-start for additional information.
 
 If you require users outside your IdP be able to access Nable (ie Clients who access their machines), you can configure a public IdP like Facebook, or create an Access Group and utilize the One-Time Pin function.  We will touch on this later.
 
-#### Access Policies
+### Access Policies
 
 First, create your access policies to let your users access the WebUI.
 
-##### Main Policy
+#### Main Policy
 
 **For Nable 2020.1 and OLDER:**
 
-* Main Policy
+* Name: Main Policy
    * Leave the application domain subdomain and path values blank
    * Click ‘Add New Policy’, name it ‘Technicians’ and set to Allow
    * Include ‘Emails Ending in’ @ yourmsp.com (whatever your IdP email suffix is)
@@ -108,7 +108,7 @@ First, create your access policies to let your users access the WebUI.
 **For Nable 2021.1 and NEWER:**
 
 * Main Policy
-   * Leave the application domain subdomain blank, and enter ```login``` for the path
+   * Name: Leave the application domain subdomain blank, and enter ```login``` for the path
    * Click ‘Add New Policy’, name it ‘Technicians’ and set to Allow
    * Include ‘Emails Ending in’ @ yourmsp.com (whatever your IdP email suffix is)
    * Configure Session Duration to be 12 hours
@@ -128,7 +128,7 @@ This is an example Main Policy for a 2021.1 that is configured to allow both IdP
 
 ![image](https://user-images.githubusercontent.com/1140952/126254879-853992f6-15f8-41d3-9dc6-2c3ae3644c91.png)
 
-##### Access Policies - Bypass
+#### Access Policies - Bypass
 
 For both versions of Nable, create additional Accesss Policies for each of the following, entering each as the ```path``` of the policy.  The policy should be configured for ```Bypass``` for ```Everyone``` on each.
 
@@ -159,7 +159,6 @@ For both versions of Nable, create additional Accesss Policies for each of the f
 Here is an example of one of the above paths:
 
 ![image](https://user-images.githubusercontent.com/1140952/126256389-66e76bbf-3f5b-4f05-82eb-f94e37c27fb6.png)
-
 
 
 **For Nable 2021.1 and NEWER Only:**
