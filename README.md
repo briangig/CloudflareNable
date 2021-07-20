@@ -166,7 +166,7 @@ Here is an example of one of the above paths:
 
 This step is optional, but no loss of functionality has been discovered yet.
 
-Nable 2021.1+ brought a new built-in Envoy proxy to the Nable server, which redirects to /login automatically when accessing the site.  Unfortunately for our use, this also leaves our root CF Domain accessible to scraping, and able to be identified as an Nable server.  We can fix this by enabling a redirect on the page:
+Nable 2021.1+ brought a new built-in Envoy proxy to the Nable server, which redirects to /login automatically when accessing the site.  Unfortunately for our use, this also leaves our root CF Domain accessible to scraping, and able to be easily identified as an Nable server.  We can reduce our exposure by enabling a redirect on the page:
 
 * Create a bypass policy for the root of your Application Domain (subdomain and path both blank):
    * ![image](https://user-images.githubusercontent.com/1140952/126255643-3fa1b874-5ba2-4a7e-8bab-8f73ac07f11e.png)
