@@ -115,7 +115,9 @@ First, create your access policies to let your users access the WebUI.
    * Save and close the Access Policy
 
 
-For both versions, if you would like to allow specific external email addresses to be able to login sing One-Time PINs:
+#### Access Groups
+
+For both versions of Nable, if you would like to allow specific external email addresses to be able to login sing One-Time PINs:
 
 * Create an Access Group called "Client Access - Nable" or similar
 * Include: Emails
@@ -157,7 +159,7 @@ For both versions of Nable, create additional Accesss Policies for each of the f
 * /tunnel/request.tunnel
 * /UIFileTransfer
 
-Here is an example of one of the above paths:
+Here is an example of one of the above paths configured in it's policy:
 
 ![image](https://user-images.githubusercontent.com/1140952/126256389-66e76bbf-3f5b-4f05-82eb-f94e37c27fb6.png)
 
