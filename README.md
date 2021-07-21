@@ -137,27 +137,27 @@ This is an example Main Policy for a 2021.1 that is configured to allow both IdP
 
 For both versions of Nable, create additional Accesss Policies for each of the following, entering each as the ```path``` of the policy.  The policy should be configured for ```Bypass``` for ```Everyone``` on each.
 
-* /dms/
-* /download/
 * /bosh/bosh/
 * /commandprompt/
+* /dms/
 * /dms/services/ServerMMS/
-* /FileTransfer/
-* /LogRetreival/
-* /services/ServerMMS/
-* /dms2/services2/ServerMMS2/
 * /dms/services/ServerUI
-* /dms2/services2/ServerUI2
-* /dms2/services2/ServerII2/
-* /dms2/services2/ServerEI2/
-* /images
-* /indexIntegrationExternalPageAction.action
-* /fonts/
-* /images/agent/
 * /dms2/hello
-* /rest/device-active-incident/
+* /dms2/services2/ServerEI2/
+* /dms2/services2/ServerII2/
+* /dms2/services2/ServerMMS2/
+* /dms2/services2/ServerUI2
+* /download/
+* /FileTransfer/
+* /fonts/
+* /images
+* /images/agent/
+* /indexIntegrationExternalPageAction.action
+* /LogRetreival/
 * /rest/dashboard
+* /rest/device-active-incident/
 * /rest/lan-devices
+* /services/ServerMMS/
 * /tunnel/request.tunnel
 * /UIFileTransfer
 
