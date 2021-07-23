@@ -42,7 +42,7 @@ This guide will utilize a new domain (hereinafter referred to as "CF Domain") th
 
 ## Known Issues
 
- * 2021.x only: Due to the new Ecosystem Agent using gRPC to communicate, it is currently not working properly with Cloudflare.  If you use any of the Nable Integrations like Intune or EDR and are on Nable build 2021.x, you will experience issues and should take that into consideration.
+ * 2021.1 only: This build added a new "Ecosystem Agent", which uses gRPC to communicate and is currently not working properly with Cloudflare.  If you use any of the Nable Integrations like Intune or EDR and are on Nable build 2021.1, you will experience issues and should take that into consideration.
 
 ## 1. Aquire a domain name, Cloudflare Account and configure Cloudflare's nameservers (NS)
 
