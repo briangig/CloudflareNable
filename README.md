@@ -1,3 +1,27 @@
+- [Configuring Cloudflare to secure your Nable instance](#configuring-cloudflare-to-secure-your-nable-instance)
+  * [Known Issues](#known-issues)
+  * [1. Aquire a domain name, Cloudflare Account and configure Cloudflare's nameservers (NS)](#1-aquire-a-domain-name--cloudflare-account-and-configure-cloudflare-s-nameservers--ns-)
+  * [2. Configure NAT rules.](#2-configure-nat-rules)
+  * [3. SSL/TLS](#3-ssl-tls)
+  * [4. Firewall](#4-firewall)
+  * [5. Access](#5-access)
+    + [Login Methods](#login-methods)
+    + [Access Policies](#access-policies)
+      - [Main Policy](#main-policy)
+      - [Access Groups](#access-groups)
+      - [Access Policies - Bypass](#access-policies---bypass)
+  * [Final Step](#final-step)
+  * [Testing](#testing)
+    + [Authentication](#authentication)
+    + [Agents](#agents)
+    + [Finalizing and Potential Issues](#finalizing-and-potential-issues)
+      - [Agents](#agents-1)
+      - [Monitoring for Issues](#monitoring-for-issues)
+      - [Break Glass Scenario](#break-glass-scenario)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # Configuring Cloudflare to secure your Nable instance
 
 Credit:
@@ -17,6 +41,9 @@ This is using the free tier from Cloudflare - there is no cost to implement this
 
 This guide will utilize a new domain (hereinafter referred to as "CF Domain") that will be where you point agents and WebUI users.  It is possible to keep your existing domain/subdomain name and utilize Cloudflare with a CNAME redirect, but that specific setup will not be covered here.
 
+## Known Issues
+
+ * Due to the Ecosystem agent using gRPC to communicate, it is currently not working properly with Cloudflare.  If you use any of the Nable Integrations like Intune or EDR, you may experience issues, and you should take that into consideration.
 
 ## 1. Aquire a domain name, Cloudflare Account and configure Cloudflare's nameservers (NS)
 
