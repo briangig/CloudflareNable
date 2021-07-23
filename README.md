@@ -153,7 +153,7 @@ For both versions of Nable, create additional Accesss Policies for each of the f
 * /images
 * /images/agent/
 * /indexIntegrationExternalPageAction.action
-* /LogRetreival/
+* /LogRetrieval/
 * /rest/dashboard
 * /rest/device-active-incident/
 * /rest/lan-devices
