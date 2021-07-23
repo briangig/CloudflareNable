@@ -19,7 +19,6 @@
       - [Monitoring for Issues](#monitoring-for-issues)
       - [Break Glass Scenario](#break-glass-scenario)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 # Configuring Cloudflare to secure your Nable instance
