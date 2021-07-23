@@ -178,15 +178,18 @@ Nable 2021.1+ brought a new built-in Envoy proxy to the Nable server, which redi
    * ![image](https://user-images.githubusercontent.com/1140952/126255970-b1ec9bcd-0f7b-4575-a51b-4aff17ba147e.png)
 
 
-## Testing
-
-At this point we are now ready to test.
+## Final Step
 
 For Nable 2021.1 and NEWER, we need to disable a security setting that will cause issues (sessions resetting, etc.).
 
 * In your Nable server, Navigate to the System Level (Red).
 * Go to Administration -> Mail and Network Settings -> Network Security
 * Change the "HANDLING IP-BASED UI LOGIN ATTACKS" setting to "Off"
+
+## Testing
+
+At this point we are now ready to test.
+
 
 ### Authentication
 
